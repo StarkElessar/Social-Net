@@ -4,7 +4,7 @@ import sidebar from './sidebar.module.css';
 
 const Sidebar = (props) => {
   return (
-    <Wrapper>
+    <Column>
       <nav className={sidebar.navbar}>
         <ul>
           <li><a href="#">Profile</a></li>
@@ -15,11 +15,12 @@ const Sidebar = (props) => {
           <li><a href="#">Settings</a></li>
         </ul>
       </nav>
-    </Wrapper>
+    </Column>
   )
 }
 
-const Wrapper = styled.section`
+const Column = styled.section`
+  position: relative;
   grid-area: nav;
   background: rgb(82, 36, 36);
 `;
