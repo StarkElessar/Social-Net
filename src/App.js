@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import styled from 'styled-components'
-import app from './app.module.css';
 import MainHeader from './Header';
 import Sidebar from './Sidebar';
 import Content from './Content';

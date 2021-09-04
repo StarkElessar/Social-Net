@@ -7,7 +7,7 @@ import search from './img/search-solid.svg';
 const MainHeader = (props) => {
   return (
     <Header>
-      <div className={header.container}>
+      <Сontainer>
         <a href="#" className={header.logo}>
           <img src={logo} alt="logo" />
           <span>SocialFor.</span>
@@ -28,7 +28,7 @@ const MainHeader = (props) => {
             </ul>
           </div>
         </div>
-      </div>
+      </Сontainer>
     </Header>
   )
 }
@@ -42,6 +42,16 @@ const Header = styled.header`
   right: 0;
   background: #231f20;
   z-index: 10;
+`;
+const Сontainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1070px;
+  height: 60px;
+  padding: 10px 20px;
+  margin: 0 auto;
 `;
 
 export default MainHeader;
