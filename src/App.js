@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components'
 import MainHeader from './Header';
 import Sidebar from './Sidebar';
@@ -37,7 +37,7 @@ const AppContainer = styled.div`
   grid-template-areas: "nav main random";
   grid-template-rows: 100%;
   grid-template-columns: 240px 10fr 180px;
-  grid-gap: 10px;
+  grid-gap: 15px;
 `;
 
 export default App;

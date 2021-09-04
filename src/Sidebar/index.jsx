@@ -8,18 +8,27 @@ const Sidebar = (props) => {
       <ProfileCard />
       <nav className={sidebar.navbar}>
         <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Messages</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Musics</a></li>
-          <li><a href="#">Videos</a></li>
-          <li><a href="#">Settings</a></li>
+          {linksData.map(({ url, title }) => <NavLinks url={url} title={title} />) }
         </ul>
       </nav>
     </Column>
   )
 };
 
+const NavLinks = (props) => {
+  return (
+    <li><a href={props.url}>{props.title}</a></li>
+  )
+};
+
+const linksData = [
+  { url: '/profile', title: 'Profile' },
+  { url: '/messages', title: 'Messages' },
+  { url: '/news', title: 'News' },
+  { url: '/musics', title: 'Musics' },
+  { url: '/videos', title: 'Videos' },
+  { url: '/setting', title: 'Settings' },
+];
 
 const ProfileCard = () => {
   return (
