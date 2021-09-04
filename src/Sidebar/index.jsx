@@ -1,9 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 import sidebar from './sidebar.module.css';
 
 const Sidebar = (props) => {
   return (
-    <section className={sidebar.wrapper}>
+    <Wrapper>
       <nav className={sidebar.navbar}>
         <ul>
           <li><a href="#">Profile</a></li>
@@ -14,8 +15,13 @@ const Sidebar = (props) => {
           <li><a href="#">Settings</a></li>
         </ul>
       </nav>
-    </section>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.section`
+  grid-area: nav;
+  background: rgb(82, 36, 36);
+`;
 
 export default Sidebar;

@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import header from './header.module.css';
 import logo from './../img/logo.png';
 import search from './img/search-solid.svg';
 
-const Header = (props) => {
+const MainHeader = (props) => {
   return (
-    <header>
+    <Header>
       <div className={header.container}>
         <a href="#" className={header.logo}>
           <img src={logo} alt="logo" />
@@ -28,8 +29,19 @@ const Header = (props) => {
           </div>
         </div>
       </div>
-    </header>
+    </Header>
   )
 }
 
-export default Header;
+const Header = styled.header`
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #231f20;
+  z-index: 10;
+`;
+
+export default MainHeader;
