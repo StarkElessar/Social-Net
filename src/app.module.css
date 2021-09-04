@@ -1,0 +1,45 @@
+.wrapper {
+  padding: 0px 0px 0px 0px;
+  
+
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #231f20;
+  z-index: 10;
+}
+
+.container {
+  width: 1030px;
+  margin: 70px auto 0;
+  display: grid;
+  grid-template-areas:
+    "nav main random";
+  grid-template-rows: 100%;
+  grid-template-columns: 240px 10fr 180px;
+  grid-gap: 10px;
+}
+
+.sidebar {
+  grid-area: nav;
+  background: rgb(82, 36, 36);
+}
+.content {
+  grid-area: main;
+  background: rgb(255, 255, 255);
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+.random {
+  grid-area: random;
+  position: relative;
+  height: 100%;
+}

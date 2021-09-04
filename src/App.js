@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import app from './app.module.css';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Content from './Content';
+import RandomFriend from './RandomFriend';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className={app.wrapper}>
+        <div className={app.header}>
+          <Header />
+        </div>
+        <div className={app.container}>
+          <div className={app.sidebar}>
+            <Sidebar />
+          </div>
+          <div className={app.content}>
+            <Content />
+          </div>
+          <div className={app.random}>
+            <RandomFriend />
+          </div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </BrowserRouter>
+    
   );
 }
+
+
 
 export default App;
