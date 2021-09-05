@@ -1,38 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Sidebar = (props) => {
-  return (
-    <Column>
-      <ProfileCard />
-      <MenuNavbar>
-        <ul>
-          {navLinksData.map(({ url, title }) => <NavLinks url={url} title={title} />)}
-        </ul>
-      </MenuNavbar>
-      <ChatOnlineBlock />
-    </Column>
-  )
-};
-
-// Start - ProfileCard ====================================
-const ProfileCard = () => {
-  return (
-    <ProfCard>
-      <ImgAvatar src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="avatar-author" />
-      <LinkName href="https://google.com">Sarah Cruiz</LinkName>
-      <LinkFollowers><i class="far fa-plus-square"></i> 1,299 followers</LinkFollowers>
-    </ProfCard>
-  )
-};
-// End - ProfileCard ======================================
-// Start - NavLinks =======================================
-const NavLinks = (props) => {
-  return (
-    <li><a href={props.url}>{props.title}</a></li>
-  )
-};
-
 const navLinksData = [
   { url: '/profile', title: 'Profile' },
   { url: '/messages', title: 'Messages' },
@@ -41,29 +9,6 @@ const navLinksData = [
   { url: '/videos', title: 'Videos' },
   { url: '/setting', title: 'Settings' },
 ];
-// End - NavLinks =========================================
-// Start - ChatOnline =====================================
-const ChatOnlineBlock = (props) => {
-  return (
-    <UserBlock>
-      <UserBlockTitle>Chat online</UserBlockTitle>
-      <ListUsers>
-        {userOnlineData.map(({ titleLink, userAvatarUrl }) => <UserOnline titleLink={titleLink} userAvatarUrl={userAvatarUrl} />)}
-      </ListUsers>
-    </UserBlock>
-  )
-};
-
-const UserOnline = (props) => {
-  return (
-    <li>
-      <a href="https://google.com" title={props.titleLink}>
-        <UserAvatarImg src={props.userAvatarUrl} alt="user" />
-        <OnlineDot></OnlineDot>
-      </a>
-    </li>
-  )
-};
 
 const userOnlineData = [
   { titleLink: 'Linda Lohan', userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-2.jpg' },
@@ -76,7 +21,71 @@ const userOnlineData = [
   { titleLink: 'Anna Young', userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-9.jpg' },
   { titleLink: 'Julia Cox', userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-10.jpg' }
 ];
-// Styled Component ChatOnlineBlock
+
+const Sidebar = (props) => {
+  return (
+    <Column>
+      <ProfileCard />
+      <MenuNavbar>
+        <ul>
+          {navLinksData.map(({ url, title }) => (
+            <NavLinks
+              key={url}
+              title={title}
+              url={url}
+            />
+          ))}
+        </ul>
+      </MenuNavbar>
+      <ChatOnlineBlock />
+    </Column>
+  )
+};
+
+const ProfileCard = () => {
+  return (
+    <ProfCard>
+      <ImgAvatar src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="avatar-author" />
+      <LinkName href="https://google.com">Sarah Cruiz</LinkName>
+      <LinkFollowers><i className="far fa-plus-square"></i> 1,299 followers</LinkFollowers>
+    </ProfCard>
+  )
+};
+
+const NavLinks = (props) => {
+  return (
+    <li><a href={props.url}>{props.title}</a></li>
+  )
+};
+
+const ChatOnlineBlock = (props) => {
+  return (
+    <UserBlock>
+      <UserBlockTitle>Chat online</UserBlockTitle>
+      <ListUsers>
+        {userOnlineData.map(({ titleLink, userAvatarUrl }) => (
+          <UserOnline
+            key={userAvatarUrl}
+            titleLink={titleLink}
+            userAvatarUrl={userAvatarUrl}
+          />
+        ))}
+      </ListUsers>
+    </UserBlock>
+  )
+};
+
+const UserOnline = (props) => {
+  return (
+    <li>
+      <a href="https://google.com" title={props.titleLink}>
+        <UserAvatarImg src={props.userAvatarUrl} alt="user" />
+        <OnlineDot />
+      </a>
+    </li>
+  )
+};
+
 const UserBlock = styled.div`
   position: sticky;
   display: flex;
@@ -138,11 +147,7 @@ const OnlineDot = styled.span`
   right: 0;
   margin: auto;
 `;
-// End - ChatOnline =======================================
 
-
-
-// Styled Component ==============================================================================================================
 const Column = styled.section`
   position: relative;
   grid-area: nav;
