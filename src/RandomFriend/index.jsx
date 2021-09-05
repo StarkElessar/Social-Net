@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import random from './random.module.css';
 
@@ -10,32 +10,16 @@ const userData = [
   { avatarUrl: 'https://themified.com/friend-finder/images/users/user-15.jpg', textName: 'Sophia Page' },
 ];
 
-const RandomFriendSection = (props) => {
-  const [isSticky, setIsSticky] = useState(false);
-  const ref = useRef();
-  const handleScroll = () => setIsSticky(ref.current.getBoundingClientRect().top < -37);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+const RandomFriend = (props) => {
   return (
-    <Column ref={ref}>
-      <Wrapper isSticky={isSticky} className="wrap">
+    <Column>
+      <Wrapper>
         <h3 className={random.title}>Подписаться</h3>
-        {userData.map(({avatarUrl, textName}) => (
-          <RandomManBox
-            avatarUrl={avatarUrl}
-            key={avatarUrl}
-            textName={textName}
-          />
-        ))}
+        {userData.map(({avatarUrl, textName}) => <RandomManBox avatarUrl={avatarUrl} textName={textName} /> )}
       </Wrapper>
     </Column>  
-  );
-};
+  )
+}
 
 const RandomManBox = (props) => {
   return (
@@ -48,18 +32,32 @@ const RandomManBox = (props) => {
         <a href="#" className={random.followLink}>Подписаться</a>
       </div>
     </div>
-  );
+  )
 };
 
-const Column = styled.section``;
 
+
+const Column = styled.section`
+  grid-area: random;
+  position: relative;
+  height: 100%;
+`;
 const Wrapper = styled.div`
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: ${({ isSticky }) => isSticky ? '0' : '120px' };
   padding-left: 5px;
-  position: ${({ isSticky }) => isSticky ? 'fixed' : 'relative' };
+  transition: all 250ms ease-in 0ms;
 `;
 
-export default RandomFriendSection;
+// const rightSidebar = document.querySelector('.wrapper')
+// window.addEventListener('scroll', () => {
+//   if (document.documentElement.scrollTop > 100) {
+//     rightSidebar.classList.add('sticky');
+//   } else {
+//     rightSidebar.classList.remove('sticky');
+//   }
+// });
+
+export default RandomFriend;

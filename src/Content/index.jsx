@@ -11,10 +11,10 @@ const Content = (props) => {
         </div>
         <form name="add_post" action="#">
           <textarea id="userPost" name="user_post" rows="2" cols="30" placeholder="Напишите, что вы думаете"></textarea>
-          <i className="far fa-edit"></i>
-          <i className="far fa-images"></i>
-          <i className="fas fa-video"></i>
-          <i className="fas fa-map-marked-alt"></i>
+          <i class="far fa-edit"></i>
+          <i class="far fa-images"></i>
+          <i class="fas fa-video"></i>
+          <i class="fas fa-map-marked-alt"></i>
           <button>Опубликовать</button>
         </form>
       </div>
