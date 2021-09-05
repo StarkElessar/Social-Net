@@ -13,7 +13,7 @@ const userData = [
 const RandomFriendSection = (props) => {
   const [isSticky, setIsSticky] = useState(false);
   const ref = useRef();
-  const handleScroll = () => setIsSticky(ref.current.getBoundingClientRect().top < -37);
+  const handleScroll = () => setIsSticky(ref.current.getBoundingClientRect().top < 86);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -57,9 +57,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: ${({ isSticky }) => isSticky ? '0' : '120px' };
+  margin-top: ${({ isSticky }) => isSticky ? '0' : '0px' };
   padding-left: 5px;
   position: ${({ isSticky }) => isSticky ? 'fixed' : 'relative' };
+  transition: all 350ms ease-in 0ms;
 `;
 
 export default RandomFriendSection;
