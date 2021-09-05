@@ -44,8 +44,8 @@ const RandomManBox = (props) => {
         <img src={props.avatarUrl} alt="avatar" />
       </div>
       <div className={random.links}>
-        <a href="#" className={random.name}>{props.textName}</a>
-        <a href="#" className={random.followLink}>Подписаться</a>
+        <a href="https://google.com" className={random.name}>{props.textName}</a>
+        <a href="https://google.com" className={random.followLink}>Подписаться</a>
       </div>
     </div>
   );
