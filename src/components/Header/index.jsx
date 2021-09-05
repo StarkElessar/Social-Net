@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import header from './header.module.css';
-import logo from './../img/logo.png';
+import logo from '../../img/logo.png';
 import search from './img/search-solid.svg';
 
 const MainHeader = (props) => {
@@ -43,6 +43,7 @@ const Header = styled.header`
   background: #231f20;
   z-index: 10;
 `;
+
 const Сontainer = styled.div`
   display: flex;
   flex-direction: row;

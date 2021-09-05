@@ -1,36 +1,34 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import styled from 'styled-components'
-import MainHeader from './Header';
-import Sidebar from './Sidebar';
-import Content from './Content';
-import RandomFriend from './RandomFriend';
+import styled from 'styled-components';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
+import Content from '../Content';
+import RandomFriendSection from '../RandomFriendSection';
 
 const App = (props) => {
   return (
     <BrowserRouter>
-      <AppWrapper>
-          <MainHeader />
-        <AppContainer>
-
+      <Wrapper>
+        <Header />
+        <Main>
           <Sidebar />
           <Content />
-          <RandomFriend />
-          
-        </AppContainer>
-      </AppWrapper>
+          <RandomFriendSection />
+        </Main>
+      </Wrapper>
     </BrowserRouter>
-    
   );
 }
 
-const AppWrapper = styled.div`
+const Wrapper = styled.div`
   padding: 0px 0px 0px 0px;
   color: #fff;
   width: 100%;
   height: 100vh;
 `;
-const AppContainer = styled.div`
+
+const Main = styled.div`
   width: 1030px;
   margin: 85px auto 0;
   display: grid;
