@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { Sticky } from 'react-sticky';
 
 const navLinksData = [
   { url: '/profile', title: 'Profile' },
@@ -88,6 +89,7 @@ const UserOnline = (props) => {
 
 const UserBlock = styled.div`
   position: sticky;
+  top: 85px;
   display: flex;
   margin-top: 40px;
   flex-direction: column;
@@ -98,6 +100,7 @@ const UserBlock = styled.div`
   line-height: 26px;
   color: #6d6e71;
   font-size: 13px;
+  transition: all 650ms ease-in 0ms;
 `;
 const UserBlockTitle = styled.div`
   background: #8dc63f;
@@ -198,11 +201,6 @@ const LinkFollowers = styled.a`
   text-decoration: none;
   margin-top: 10px;
   transition: all 350ms ease-in 0ms;
-
-  &:hover {
-    border-bottom: 1px solid;
-  }
-
   & i {
     padding-top: 2px;
     margin-right: 5px;
