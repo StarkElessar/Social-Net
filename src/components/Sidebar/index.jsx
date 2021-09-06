@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Sticky } from 'react-sticky';
 
 const navLinksData = [
   { url: '/profile', title: 'Profile' },
@@ -22,7 +21,7 @@ const userOnlineData = [
   { titleLink: 'Anna Young', userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-9.jpg' },
   { titleLink: 'Julia Cox', userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-10.jpg' }
 ];
-
+// Main Component ==============================================================================================================================================================================================================
 const Sidebar = (props) => {
   return (
     <Column>
@@ -43,6 +42,7 @@ const Sidebar = (props) => {
   )
 };
 
+// Components ================================================================================================================================================================================================================================================================================================
 const ProfileCard = () => {
   return (
     <ProfCard>
@@ -87,6 +87,7 @@ const UserOnline = (props) => {
   )
 };
 
+// Styled Components ================================================================================================================================================================================================
 const UserBlock = styled.div`
   position: sticky;
   top: 85px;
