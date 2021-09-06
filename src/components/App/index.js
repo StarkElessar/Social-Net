@@ -12,7 +12,10 @@ const App = (props) => {
       <Wrapper>
         <Header />
         <Main>
-          <Sidebar />
+          <Sidebar
+            sidebar={props.state.sidebar}
+            // navLinksData={props.state.sidebar.navLinksData}
+          />
           <Content />
           <RandomFriendSection />
         </Main>
