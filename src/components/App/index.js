@@ -12,12 +12,9 @@ const App = (props) => {
       <Wrapper>
         <Header />
         <Main>
-          <Sidebar
-            sidebar={props.state.sidebar}
-            // navLinksData={props.state.sidebar.navLinksData}
-          />
+          <Sidebar sidebar={props.state.sidebar} />
           <Content />
-          <RandomFriendSection />
+          <RandomFriendSection randomFriendsSection={props.state.randomFriendsSection}/>
         </Main>
       </Wrapper>
     </BrowserRouter>
