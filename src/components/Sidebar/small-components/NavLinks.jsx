@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const NavLinks = (props) => {
   return (
-    <li><a href={props.url}>{props.title}</a></li>
+    <li><NavLink to={props.url} activeClassName='active' >{props.title}</NavLink></li>
   )
 };
 

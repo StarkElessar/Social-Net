@@ -144,4 +144,8 @@ export const MenuNavbar = styled.nav`
     color: rgb(26, 132, 165);
     letter-spacing: 1px;
   }
+  & ul li a.active {
+    color: rgb(26, 132, 165);
+    letter-spacing: 1px;
+  }
 `;

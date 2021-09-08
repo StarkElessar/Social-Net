@@ -2,7 +2,7 @@ const state = {
   sidebar: {
     navLinksData: [
       { url: '/profile', title: 'Profile' },
-      { url: '/messages', title: 'Messages' },
+      { url: '/dialogs', title: 'Messages' },
       { url: '/news', title: 'News' },
       { url: '/musics', title: 'Musics' },
       { url: '/videos', title: 'Videos' },
