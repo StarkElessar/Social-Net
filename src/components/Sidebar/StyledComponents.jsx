@@ -15,7 +15,7 @@ export const UserBlock = styled.div`
   line-height: 26px;
   color: #6d6e71;
   font-size: 13px;
-  transition: all 750ms ease-in-out 0ms;
+
 `;
 export const UserBlockTitle = styled.div`
   background: #8dc63f;

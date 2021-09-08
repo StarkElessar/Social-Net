@@ -18,7 +18,7 @@ const Content = (props) => {
           <Dialogs />
         </Route>
       </Switch>
-      </Wrapper>
+    </Wrapper>
     
   )
 };
