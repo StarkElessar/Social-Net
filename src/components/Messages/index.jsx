@@ -48,11 +48,16 @@ const UserDialogItems = styled.div`
 `;
 const UserDialogItem = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
+  transition: all 150ms ease 0ms;
+  &:hover {
+    background: rgba(0,0,0,0.1);
+  }
 `;
 const UserName = styled.h6`
   color: #333;
