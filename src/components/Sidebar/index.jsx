@@ -2,8 +2,8 @@ import React from 'react';
 import { Column, MenuNavbar, UserBlock, UserBlockTitle, ListUsers } from "./StyledComponents";
 import NavLinks from './small-components/NavLinks';
 import ProfileCard from './small-components/ProfileCard';
-import UserOnline from './small-components/UserOnline';
-// import ChatOnlineBlock  from './small-components/ChatOnlineBlock'; 
+// import UserOnline from './small-components/UserOnline';
+import ChatOnlineBlock  from './small-components/ChatOnlineBlock'; 
 
 import { useEffect, useRef, useState } from 'react';
 // Main Component ==============================================================================================================================================================================================================
@@ -33,19 +33,8 @@ const Sidebar = (props) => {
           ))}
         </ul>
       </MenuNavbar>
-      {/* <ChatOnlineBlock userOnlineData={props.sidebar.userOnlineData} /> */}
-      <UserBlock isSticky={isSticky} >
-        <UserBlockTitle>Chat online</UserBlockTitle>
-        <ListUsers>
-          {props.sidebar.userOnlineData.map(({ titleLink, userAvatarUrl }) => (
-            <UserOnline
-              key={userAvatarUrl}
-              titleLink={titleLink}
-              userAvatarUrl={userAvatarUrl}
-            />
-          ))}
-        </ListUsers>
-      </UserBlock>
+      <ChatOnlineBlock userOnlineData={props.sidebar.userOnlineData} isSticky={isSticky}/>
+      
     </Column>
   )
 };

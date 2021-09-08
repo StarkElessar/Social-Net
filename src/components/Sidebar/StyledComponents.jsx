@@ -81,7 +81,7 @@ export const ProfCard = styled.div`
   border-radius: 4px;
   padding: 10px 20px;
   color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 `;
 export const ImgAvatar = styled.img`
   border: 7px solid #fff;
@@ -135,8 +135,8 @@ export const MenuNavbar = styled.nav`
     width: 160px; 
   }
   & ul li:last-child {
-    margin-top: 60px;
-    padding-bottom: 25px;
+    margin-top: 0px;
+    padding-bottom: 15px;
   }
   & ul li a {
     color: #6d6e71;

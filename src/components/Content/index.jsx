@@ -27,11 +27,10 @@ const Content = (props) => {
 
 const Wrapper = styled.section`
   grid-area: main;
+  height: 100%;
   background: rgb(255, 255, 255);
   margin-top: 25px;
-  border: 1px solid rgba(0,0,0,0.2);
   padding: 0px;
-  border-radius: 6px;
 `;
 
 export default Content;
