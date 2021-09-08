@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: ${({ isSticky }) => isSticky ? '0' : '0px'};
+  margin-top: ${({ isSticky }) => isSticky ? '40px' : '25px'};
   padding-left: 5px;
   position: ${({ isSticky }) => isSticky ? 'fixed' : 'relative'};
   transition: all 350ms ease-in 0ms;

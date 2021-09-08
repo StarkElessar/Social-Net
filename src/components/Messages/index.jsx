@@ -10,7 +10,7 @@ const Dialogs = (props) => {
           <img src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="user-avatar" />
         </Avatar>
         <UserName>
-
+          
         </UserName>
       </UserDialogItem>
       

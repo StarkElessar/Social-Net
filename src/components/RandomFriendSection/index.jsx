@@ -7,7 +7,7 @@ import RandomFriendItem from './small-components/RandomFriendItem';
 const RandomFriendSection = (props) => {
   const [isSticky, setIsSticky] = useState(false);
   const ref = useRef();
-  const handleScroll = () => setIsSticky(ref.current.getBoundingClientRect().top < 86);
+  const handleScroll = () => setIsSticky(ref.current.getBoundingClientRect().top < 60);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

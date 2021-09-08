@@ -1,10 +1,12 @@
 import styled from "styled-components";
-
+// position: sticky;
+// top: 105px;
+// margin - top: 40px;
 export const UserBlock = styled.div`
-  position: sticky;
-  top: 85px;
+  
+  position: ${({ isSticky }) => isSticky ? 'fixed' : 'relative'};
+  top: ${({ isSticky }) => isSticky ? '100px' : '0px'};
   display: flex;
-  margin-top: 40px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -13,7 +15,7 @@ export const UserBlock = styled.div`
   line-height: 26px;
   color: #6d6e71;
   font-size: 13px;
-  transition: all 650ms ease-in 0ms;
+  transition: all 750ms ease-in-out 0ms;
 `;
 export const UserBlockTitle = styled.div`
   background: #8dc63f;
@@ -29,18 +31,19 @@ export const UserBlockTitle = styled.div`
 `;
 export const ListUsers = styled.ul`
   padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    margin: 0;
-    list-style: none;
+  width: 240px;
+  padding-right: 20px;
+  text-align: center;
+  margin: 0;
+  list-style: none;
 
-    & li {
-    display: inline-block;
-    position: relative;
-    margin: 3px auto !important;
-    padding-left: 2px;
-    padding-right: 2px;
-    }
+  & li {
+  display: inline-block;
+  position: relative;
+  margin: 3px auto !important;
+  padding-left: 2px;
+  padding-right: 2px;
+  }
 `;
 export const UserAvatarImg = styled.img`
   display: block;
@@ -65,7 +68,8 @@ export const OnlineDot = styled.span`
 `;
 
 export const Column = styled.section`
-  position: relative;
+  position: static;
+  padding-top: 25px;
   grid-area: nav;
   background: #fff;
 `;
@@ -124,14 +128,15 @@ export const MenuNavbar = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-
   & ul {
     display: flex;
     flex-direction: column;
     list-style: none;
+    width: 160px; 
   }
   & ul li:last-child {
     margin-top: 60px;
+    padding-bottom: 25px;
   }
   & ul li a {
     color: #6d6e71;

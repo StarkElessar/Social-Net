@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 
 const Main = styled.div`
   width: 1030px;
-  margin: 85px auto 0;
+  margin: 60px auto 0;
   display: grid;
   grid-template-areas: "nav main random";
   grid-template-rows: 100%;
