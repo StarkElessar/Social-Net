@@ -66,8 +66,6 @@ const UserDialogItem = styled(NavLink)`
   align-items: center;
   padding: 12px 20px;
   cursor: pointer;
-  box-sizing: border-box;
-  border-box: 4px;
   transition: all 150ms ease 0ms;
   &:hover {
     background: rgb(245, 245, 245);

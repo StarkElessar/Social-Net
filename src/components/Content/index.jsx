@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MyPosts from './../MyPosts';
 import Dialogs from './../Messages';
+import ContainerMessages from './../ContainerMessages';
 import { Route, Switch } from 'react-router';
 
 const Content = (props) => {
@@ -17,6 +18,9 @@ const Content = (props) => {
           <Route exact path='/dialogs'>
             <Dialogs />
           </Route>
+          <Route exact path='/dialogs/ums01'>
+            <ContainerMessages />
+          </Route>
         </Switch>
     </Wrapper>
   )
@@ -30,6 +34,8 @@ const Wrapper = styled.section`
   background: rgb(255, 255, 255);
   margin-top: 25px;
   padding: 0px;
+  height: 550px;
+  width: 100%;
 `;
 
 export default Content;
