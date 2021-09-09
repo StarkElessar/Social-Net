@@ -7,19 +7,18 @@ import { Route, Switch } from 'react-router';
 const Content = (props) => {
   return (
     <Wrapper>
-      <Switch>
-        <Route exact path='/'>
-          <MyPosts />
-        </Route>
-        <Route exact path='/profile'>
-          <MyPosts />
-        </Route>
-        <Route exact path='/dialogs'>
-          <Dialogs />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path='/'>
+            <MyPosts />
+          </Route>
+          <Route exact path='/profile'>
+            <MyPosts />
+          </Route>
+          <Route exact path='/dialogs'>
+            <Dialogs />
+          </Route>
+        </Switch>
     </Wrapper>
-    
   )
 };
 

@@ -1,38 +1,38 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Avatar } from "./StyledComponents";
 
 const Dialogs = (props) => {
   return (
     <UserDialogItems>
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-12.jpg' userName='Виктор Семенов' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-2.jpg' userName='Ирина Белая' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-3.jpg' userName='Лариса Чабатарева' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-4.jpg' userName='Иван Ольгович' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-5.jpg' userName='Марго Матюхова' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-6.jpg' userName='Грегор Чабатарева' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-7.jpg' userName='Гена Олехнович' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-8.jpg' userName='Вася Ивановна' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-9.jpg' userName='Олейна Свинная' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-10.jpg' userName='Илона Олехнович' />
-      <UserDialogItemComponent userAvatarUrl='https://themified.com/friend-finder/images/users/user-11.jpg' userName='Наталья Ивановна' />
+      <UserDialogItemComponent id='ums01' userAvatarUrl='https://themified.com/friend-finder/images/users/user-12.jpg' userName='Виктор Семенов' />
+      <UserDialogItemComponent id='ums02' userAvatarUrl='https://themified.com/friend-finder/images/users/user-3.jpg' userName='Лариса Чабатарева' />
+      <UserDialogItemComponent id='ums03' userAvatarUrl='https://themified.com/friend-finder/images/users/user-2.jpg' userName='Ирина Белая' />
+      <UserDialogItemComponent id='ums04' userAvatarUrl='https://themified.com/friend-finder/images/users/user-4.jpg' userName='Иван Ольгович' />
+      <UserDialogItemComponent id='ums05' userAvatarUrl='https://themified.com/friend-finder/images/users/user-5.jpg' userName='Марго Матюхова' />
+      <UserDialogItemComponent id='ums06' userAvatarUrl='https://themified.com/friend-finder/images/users/user-6.jpg' userName='Грегор Чабатарева' />
+      <UserDialogItemComponent id='ums07' userAvatarUrl='https://themified.com/friend-finder/images/users/user-7.jpg' userName='Гена Олехнович' />
+      <UserDialogItemComponent id='ums08' userAvatarUrl='https://themified.com/friend-finder/images/users/user-8.jpg' userName='Вася Ивановна' />
+      <UserDialogItemComponent id='ums09' userAvatarUrl='https://themified.com/friend-finder/images/users/user-9.jpg' userName='Олейна Свинная' />
+      <UserDialogItemComponent id='ums10' userAvatarUrl='https://themified.com/friend-finder/images/users/user-10.jpg' userName='Илона Олехнович' />
+      <UserDialogItemComponent id='ums11' userAvatarUrl='https://themified.com/friend-finder/images/users/user-11.jpg' userName='Наталья Ивановна' />
     </UserDialogItems>
   )
 };
 
 const UserDialogItemComponent = (props) => {
   return (
-    <UserDialogItem>
-      <Avatar>
-        <img src={props.userAvatarUrl} alt="user-avatar" />
-      </Avatar>
-      <UserName>{props.userName}</UserName>
-      <BtnDel>
-        <TextDelDialog>
-          <span>Удалить чат</span>
-        </TextDelDialog>
-      </BtnDel>
-      
+    <UserDialogItem to={'/dialogs/' + props.id}>
+        <Avatar>
+          <img src={props.userAvatarUrl} alt="user-avatar" />
+        </Avatar>
+        <UserName>{props.userName}</UserName>
+        <BtnDel>
+          <TextDelDialog>
+            <span>Удалить чат</span>
+          </TextDelDialog>
+        </BtnDel>
     </UserDialogItem>
   )
 };
@@ -56,11 +56,11 @@ const UserDialogItems = styled.div`
   ::-webkit-scrollbar-corner { background-color: #999;}}
   ::-webkit-resizer { background-color: #666;}
 `;
-const UserDialogItem = styled.div`
+const UserDialogItem = styled(NavLink)`
   position: relative;
   display: flex;
   width: 100%;
-  
+  text-decoration: none;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -93,6 +93,9 @@ const UserDialogItem = styled.div`
   }
   &:hover:before,
   &:hover:after {
+    width: 100%;
+  }
+  a & {
     width: 100%;
   }
 `;
