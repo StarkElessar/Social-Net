@@ -3,34 +3,22 @@ import styled from "styled-components";
 import { AddPost, Avatar } from "./StyledComponents";
 import FontAwesomeIcon from "./small-components/FontAwesomeIcon";
 
+
+
 const MyPosts = (props) => {
   return (
     <Wrapper>
       <AddPostComponent />
-      <MyPostComponent
-        userAvatarUrl='https://themified.com/friend-finder/images/users/user-1.jpg'
-        authorName='Сарра Круиз'
-        postDate='2 октября в 11:10'
-        userTextPost='Тестим камеру нового Xiaomi redmi Note 3 Pro ✌📷
-                      Скажу одно, соотношение качества всех внутренностей, мощности процессора, камеры и автономности по отношению к бюджету💰 самого аппарата - нереальны! Но даже и эти сравнения не сопоставимы с красотою Вички 😌'
-      />
-      <MyPostComponent
-        userAvatarUrl='https://themified.com/friend-finder/images/users/user-1.jpg'
-        authorName='Сарра Круиз'
-        postDate='3 октября в 13:30'
-        userTextPost='Именно поэтому мы и работаем в SketchUp.
-                      Смотрите запись мастер-класса по моделированию мягкого кресла и сложного светильника.
-                      ⚠Предупреждаем! Возможна реакцкия " А что так можно было?!"⚠
-                      SketchUp - это просто и быстро. Возможности не ограничены, это лишь только кажется. Проще, удобнее, логичнее. Крутой конечный результат.
-                      Смотрите, удивляйтесь, наслаждайтесь!'
-      />
-      <MyPostComponent
-        userAvatarUrl='https://themified.com/friend-finder/images/users/user-1.jpg'
-        authorName='Сарра Круиз'
-        postDate='12 октября в 10:30'
-        userTextPost='На днях пересмотрел Хоббит и Властелин Колец, и как бы хотелось продолжения этой выдуманной вселенной 😥'
-      />
-      
+      {
+        props.postData.map(({ userAvatarUrl, authorName, postDate, userTextPost }) => (
+          <MyPostComponent
+            userAvatarUrl={userAvatarUrl}
+            authorName={authorName}
+            postDate={postDate}
+            userTextPost={userTextPost}
+          />
+        ))
+      }
     </Wrapper>
     
   )

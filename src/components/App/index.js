@@ -13,8 +13,8 @@ const App = (props) => {
         <Header />
         <Main>
           <Sidebar sidebar={props.state.sidebar} />
-          <Content />
-          <RandomFriendSection randomFriendsSection={props.state.randomFriendsSection}/>
+          <Content content={props.state.content} messages={props.state.messages} />
+          <RandomFriendSection randomFriendsSection={props.state.randomFriendsSection} />
         </Main>
       </Wrapper>
     </BrowserRouter>

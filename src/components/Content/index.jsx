@@ -10,16 +10,16 @@ const Content = (props) => {
     <Wrapper>
         <Switch>
           <Route exact path='/'>
-            <MyPosts />
+            <MyPosts postData={props.content.postData} />
           </Route>
           <Route exact path='/profile'>
-            <MyPosts />
+            <MyPosts postData={props.content.postData} />
           </Route>
           <Route exact path='/dialogs'>
-            <Dialogs />
+            <Dialogs dialogItemData={props.content.dialogItemData} />
           </Route>
           <Route exact path='/dialogs/ums01'>
-            <ContainerMessages />
+          <ContainerMessages userMessageData={props.messages.userMessageData} />
           </Route>
         </Switch>
     </Wrapper>
