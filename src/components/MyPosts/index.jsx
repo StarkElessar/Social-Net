@@ -10,8 +10,9 @@ const MyPosts = (props) => {
     <Wrapper>
       <AddPostComponent />
       {
-        props.postData.map(({ userAvatarUrl, authorName, postDate, userTextPost }) => (
+        props.postData.map(({ id, userAvatarUrl, authorName, postDate, userTextPost }) => (
           <MyPostComponent
+            id={id}
             userAvatarUrl={userAvatarUrl}
             authorName={authorName}
             postDate={postDate}
@@ -24,19 +25,28 @@ const MyPosts = (props) => {
   )
 };
 
+
 const AddPostComponent = (props) => {
+
+  const newPostElement = React.createRef();
+
+  const addPost = () => {
+    let textBox = newPostElement.current.value;
+    alert(textBox);
+  };
+
   return (
     <AddPost>
       <Avatar>
         <img src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="user-avatar" />
       </Avatar>
       <form name="add_post" action="#">
-        <textarea id="userPost" name="user_post" rows="2" cols="30" placeholder="Напишите, что вы думаете"></textarea>
+        <textarea ref={newPostElement} id="userPost" name="user_post" rows="2" cols="30" placeholder="Напишите, что вы думаете"></textarea>
         <FontAwesomeIcon nameClass="far fa-edit" />
         <FontAwesomeIcon nameClass="far fa-images" />
         <FontAwesomeIcon nameClass="fas fa-video" />
         <FontAwesomeIcon nameClass="fas fa-map-marked-alt" />
-        <button>Опубликовать</button>
+        <button onClick={addPost}>Опубликовать</button>
       </form>
     </AddPost>
   )
