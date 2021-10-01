@@ -23,29 +23,7 @@ const state = {
     ]
   },
   content: {
-    postData: [
-      {
-        id: 1,
-        userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-1.jpg',
-        authorName: 'Сарра Круиз',
-        postDate: '2 октября в 11:10',
-        userTextPost: "Тестим камеру нового Xiaomi redmi Note 3 Pro ✌📷 Скажу одно, соотношение качества всех внутренностей, мощности процессора, камеры и автономности по отношению к бюджету💰 самого аппарата - нереальны! Но даже и эти сравнения не сопоставимы с красотою Вички 😌"
-      },
-      {
-        id: 2,
-        userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-1.jpg',
-        authorName: 'Сарра Круиз',
-        postDate: '3 октября в 13:10',
-        userTextPost: 'Именно поэтому мы и работаем в SketchUp. Смотрите запись мастер- класса по моделированию мягкого кресла и сложного светильника. ⚠ Предупреждаем! Возможна реакцкия " А что так можно было?!"⚠ SketchUp - это просто и быстро.Возможности не ограничены, это лишь только кажется.Проще, удобнее, логичнее.Крутой конечный результат. Смотрите, удивляйтесь, наслаждайтесь!'
-      },
-      {
-        id: 3,
-        userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-1.jpg',
-        authorName: 'Сарра Круиз',
-        postDate: '3 октября в 14:10',
-        userTextPost: 'На днях пересмотрел Хоббит и Властелин Колец, и как бы хотелось продолжения этой выдуманной вселенной 😥'
-      },
-    ],
+    postData: [],
     newPostData: '',
     dialogItemData: [
       {
@@ -176,15 +154,16 @@ export const updateNewPostText = newText => {
 };
 
 export const addPost = () => {
-  const date = (new Date()).toLocaleDateString();
-  const time = (new Date()).toLocaleTimeString();
+  const DATE = (new Date()).toLocaleDateString();
+  const TIME = (new Date()).toLocaleTimeString();
+  const postDate = `${DATE} в ${TIME}`;
   // const postDate = `${date.getDate()}.${date.getUTCMonth() + 1}.${date.getFullYear()} в ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
   const newPost = {
-    id: 4,
+    id: state.content.postData.length + 1,
     userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-1.jpg',
     authorName: 'Сарра Круиз',
-    postDate: `${date} в ${time}`,
+    postDate: postDate,
     userTextPost: state.content.newPostData,
   }
   state.content.postData.push(newPost);

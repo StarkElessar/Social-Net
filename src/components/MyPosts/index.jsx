@@ -8,6 +8,10 @@ const MyPosts = (props) => {
   const reversePostData = [...props.postData].reverse();
   console.log(reversePostData);
 
+  const onDeletePost = () => {
+    alert('Кнопка работает');
+  }
+
   return (
     <Wrapper>
       <AddPostComponent
@@ -24,6 +28,7 @@ const MyPosts = (props) => {
             authorName={authorName}
             postDate={postDate}
             userTextPost={userTextPost}
+            deletePost={onDeletePost}
           />
         ))
       }
@@ -92,15 +97,22 @@ const MyPostComponent = (props) => {
       <PostBody>
         <p>{ props.userTextPost}</p>
       </PostBody>
+      <BtnDelPost onClick={props.deletePost}>
+        <SpanDelPost>
+          Удалить пост
+        </SpanDelPost>
+      </BtnDelPost>
     </MyPost>
   )
 };
+
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 const MyPost = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -164,5 +176,77 @@ const PostBody = styled.div`
     text-align: left;
   }
 `;
+
+const BtnDelPost = styled.button`
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 10%;
+  right: 3%;
+  background: transparent;
+  border: none;
+  outline: 0;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: all 220ms ease-in 0ms;
+  ${MyPost}:hover & {
+    opacity: 1;
+    visibility: visible;
+  }
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.2);
+    height: 2px;
+    width: 10px;
+    transition: all 340ms ease-in 0ms;
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &:hover::after,
+  &:hover::before {
+    background: rgba(0,0,0,0.6);
+  }
+`;
+const SpanDelPost = styled.span`
+  position: absolute;
+  top: -2px;
+  right: 15px;
+  line-height: 100%;
+  width: 95px;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 240ms ease-in 0ms;
+  &:before {
+      content: '';
+      position: absolute;
+      border: 5px solid transparent;
+      border-left: 5px solid rgba(0,0,0,0.75);
+      top: 5px;
+      right: -10px;
+    }
+  ${BtnDelPost}:hover & {
+    right: 20px;
+    opacity: 1;
+    visibility: visible;
+  }
+`;
+
 
 export default MyPosts;

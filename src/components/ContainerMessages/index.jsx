@@ -22,8 +22,9 @@ const ContainerMessages = (props) => {
       </Header>
       <Body>
         {
-          props.userMessageData.map(({ userAvatarUrl, userName, userTextMessage }) => (
+          props.userMessageData.map(({ userAvatarUrl, userName, userTextMessage, index }) => (
             <UserMessageComponent
+              key={index}
               userAvatarUrl={userAvatarUrl}
               userName={userName}
               userTextMessage={userTextMessage}

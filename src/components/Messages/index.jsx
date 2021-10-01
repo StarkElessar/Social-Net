@@ -7,7 +7,11 @@ const Dialogs = (props) => {
     <UserDialogItems>
       {
         props.dialogItemData.map(({ id, userAvatarUrl, userName }) => (
-          <UserDialogItemComponent id={id} userAvatarUrl={userAvatarUrl} userName={userName} />
+          <UserDialogItemComponent
+            key={id}
+            id={id}
+            userAvatarUrl={userAvatarUrl}
+            userName={userName} />
         ))
       }
     </UserDialogItems>
