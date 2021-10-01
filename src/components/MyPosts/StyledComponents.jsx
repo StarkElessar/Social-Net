@@ -8,6 +8,7 @@ export const AddPost = styled.div`
   height: 120px;
   width: 100%;
   border-bottom: 1px solid rgba(204, 204, 204, 0.4);
+  margin-bottom: 20px;
 
   & form {
     display: flex;
@@ -36,7 +37,7 @@ export const AddPost = styled.div`
   }
   & form i {
     color: #6d6e71;
-    font-size: 16px;
+    font-size: 12px;
     margin: 0 5px;
     cursor: pointer;
     transition: all 150ms ease-in-out 0ms;

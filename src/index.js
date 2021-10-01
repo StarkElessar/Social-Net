@@ -1,12 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-import state from './Redux/state'
+import state from './Redux/state.js'
+import rerenderEntireTree from './Redux/render.js'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App state={ state }/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+rerenderEntireTree(state);

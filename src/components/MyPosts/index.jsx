@@ -3,15 +3,22 @@ import styled from "styled-components";
 import { AddPost, Avatar } from "./StyledComponents";
 import FontAwesomeIcon from "./small-components/FontAwesomeIcon";
 
-
-
 const MyPosts = (props) => {
+
+  const reversePostData = [...props.postData].reverse();
+  console.log(reversePostData);
+
   return (
     <Wrapper>
-      <AddPostComponent />
+      <AddPostComponent
+        addPost={props.addPost}
+        newPostData={props.newPostData}
+        updateNewPostText={props.updateNewPostText}
+      />
       {
-        props.postData.map(({ id, userAvatarUrl, authorName, postDate, userTextPost }) => (
+        reversePostData.map(({ id, userAvatarUrl, authorName, postDate, userTextPost }) => (
           <MyPostComponent
+            key={id}
             id={id}
             userAvatarUrl={userAvatarUrl}
             authorName={authorName}
@@ -25,15 +32,24 @@ const MyPosts = (props) => {
   )
 };
 
-
 const AddPostComponent = (props) => {
+  // const [postText, setPostText] = useState('');
+  // const onChangeHandler = (event) => setPostText(event.target.value);
+  // onChange = { onChangeHandler }
+  // value = { postText }
+    
+  let newPostElement = React.createRef();
 
-  const newPostElement = React.createRef();
-
-  const addPost = () => {
-    let textBox = newPostElement.current.value;
-    alert(textBox);
+  // Событие при клике на копнку "Опубликовать"
+  const onAddPost = (event) => {
+    event.preventDefault();
+    props.addPost();
   };
+
+  // слушатель события в поле TEXTAREA
+  const onPostChange = () => {
+    props.updateNewPostText(newPostElement.current.value);
+  }
 
   return (
     <AddPost>
@@ -41,17 +57,25 @@ const AddPostComponent = (props) => {
         <img src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="user-avatar" />
       </Avatar>
       <form name="add_post" action="#">
-        <textarea ref={newPostElement} id="userPost" name="user_post" rows="2" cols="30" placeholder="Напишите, что вы думаете"></textarea>
+        <textarea
+          ref={newPostElement}
+          id="userPost"
+          name="user_post"
+          rows="2"
+          cols="30"
+          placeholder="Напишите, что вы думаете"
+          onChange={onPostChange}
+          value={props.newPostData}
+        />
         <FontAwesomeIcon nameClass="far fa-edit" />
         <FontAwesomeIcon nameClass="far fa-images" />
         <FontAwesomeIcon nameClass="fas fa-video" />
         <FontAwesomeIcon nameClass="fas fa-map-marked-alt" />
-        <button onClick={addPost}>Опубликовать</button>
+        <button onClick={onAddPost}>Опубликовать</button>
       </form>
     </AddPost>
   )
 };
-
 
 const MyPostComponent = (props) => {
   return (
@@ -72,8 +96,6 @@ const MyPostComponent = (props) => {
   )
 };
 
-
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -89,18 +111,19 @@ const MyPost = styled.div`
   background: rgb(250,250,250);
   border: 1px solid rgba(204, 204, 204, 0.2);
   border-radius: 6px;
-  margin-top: 20px;
+  margin-bottom: 20px;
   transition: all 250ms ease-in 0ms;
+  
   &:hover {
     box-shadow: 0 0 1px 0 rgba(0,0,0,0.1),
-                0 0 5px 0 rgba(0,0,0,0.1),
-                0 0 8px 0 rgba(0,0,0,0.1);
+    0 0 5px 0 rgba(0,0,0,0.1),
+    0 0 8px 0 rgba(0,0,0,0.1);
   }
 `;
 const PostHeader = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content; center;
+  justify-content: flex-start;
   align-items: center;
   height: 60px;
   width: 100%;
@@ -128,7 +151,7 @@ const UserName = styled.div`
 `;
 const PostBody = styled.div`
   display: flex;
-  justify-content; center;
+  justify-content: center;
   align-items: center;
   margin-top: 15px;
   & p {
@@ -141,7 +164,5 @@ const PostBody = styled.div`
     text-align: left;
   }
 `;
-
-
 
 export default MyPosts;

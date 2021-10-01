@@ -1,3 +1,5 @@
+import rerenderEntireTree from "./render";
+
 const state = {
   sidebar: {
     navLinksData: [
@@ -42,8 +44,9 @@ const state = {
         authorName: 'Сарра Круиз',
         postDate: '3 октября в 14:10',
         userTextPost: 'На днях пересмотрел Хоббит и Властелин Колец, и как бы хотелось продолжения этой выдуманной вселенной 😥'
-      }
+      },
     ],
+    newPostData: '',
     dialogItemData: [
       {
         id: 'ums01',
@@ -165,6 +168,28 @@ const state = {
       { avatarUrl: 'https://themified.com/friend-finder/images/users/user-15.jpg', textName: 'Sophia Page' }
     ]
   }
+}
+
+export const updateNewPostText = newText => {
+  state.content.newPostData = newText;
+  rerenderEntireTree(state);
+};
+
+export const addPost = () => {
+  const date = (new Date()).toLocaleDateString();
+  const time = (new Date()).toLocaleTimeString();
+  // const postDate = `${date.getDate()}.${date.getUTCMonth() + 1}.${date.getFullYear()} в ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+  const newPost = {
+    id: 4,
+    userAvatarUrl: 'https://themified.com/friend-finder/images/users/user-1.jpg',
+    authorName: 'Сарра Круиз',
+    postDate: `${date} в ${time}`,
+    userTextPost: state.content.newPostData,
+  }
+  state.content.postData.push(newPost);
+  updateNewPostText('');
+  rerenderEntireTree(state);
 }
 
 export default state;
