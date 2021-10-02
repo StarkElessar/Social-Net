@@ -1,10 +1,8 @@
 import React from 'react';
-import { Column, MenuNavbar, UserBlock, UserBlockTitle, ListUsers } from "./StyledComponents";
+import { Column, MenuNavbar } from "./StyledComponents";
 import NavLinks from './small-components/NavLinks';
 import ProfileCard from './small-components/ProfileCard';
-// import UserOnline from './small-components/UserOnline';
 import ChatOnlineBlock  from './small-components/ChatOnlineBlock'; 
-
 import { useEffect, useRef, useState } from 'react';
 // Main Component ==============================================================================================================================================================================================================
 const Sidebar = (props) => {
